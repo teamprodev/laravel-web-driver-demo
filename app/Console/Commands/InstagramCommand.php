@@ -2,17 +2,17 @@
 
 namespace App\Console\Commands;
 
+use App\Services\InstagramService;
 use Illuminate\Console\Command;
-use App\Services\Service;
 
-class Test extends Command
+class InstagramCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'test:run';
+    protected $signature = 'command:run';
 
     /**
      * The console command description.
@@ -24,12 +24,11 @@ class Test extends Command
     /**
      * Execute the console command.
      *
-     * @param Service $test
      * @return int
      */
-    public function handle(Service $test)
+    public function handle(InstagramService $service)
     {
-        $test->test();
+        $service->login();
         return Command::SUCCESS;
     }
 }
